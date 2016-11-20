@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f3138e3-3cd9-44b3-94df-06560621cbe1" name="Default" comment="codes for digit recognizer and titanic disaster, started doing jupyter notebook">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/PyConcepts.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/tony.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classification/NumberClassifier.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classification/process_csv.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/titanic_disaster/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/titanic_disaster/mlbase.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/titanic_disaster/params.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/titanic_disaster/titanic.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/titanic_disaster/titanic_disaster.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/titanic_disaster/titanic_disaster_test.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/us_polls_prediction/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/us_polls_prediction/mlbase.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/us_polls_prediction/params.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kaggle/us_polls_prediction/us_polls_prediction.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oops/WarriorsAttack.py" afterPath="$PROJECT_DIR$/oops/WarriorsAttack.py" />
     </list>
     <ignored path="project1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,6 +83,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="rahuljain2104 &lt;rahuljain2104@gmail.com&gt;" />
         <option value="jrahul" />
         <option value="@jrahul" />
       </list>
@@ -501,6 +485,14 @@
       <option name="presentableId" value="Default" />
       <updated>1474208207281</updated>
     </task>
+    <task id="LOCAL-00001" summary="codes for digit recognizer and titanic disaster, started doing jupyter notebook">
+      <created>1479658078742</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1479658078742</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -514,11 +506,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16220239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207856" sideWeight="0.49702382" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207856" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207856" sideWeight="0.30729166" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207856" sideWeight="0.6927083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13987139" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
