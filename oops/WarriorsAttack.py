@@ -21,11 +21,9 @@ class Warrior:
         self.attkMax = attkMax
         self.blockMax = blockMax
 
-
     def attack(self):
         attkAmt =self.attkMax*(random.random()+0.5)
         return attkAmt
-
 
     def block(self):
         blockAmt =self.blockMax*(random.random()+0.5)
