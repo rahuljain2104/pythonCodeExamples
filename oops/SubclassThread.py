@@ -1,9 +1,9 @@
 import threading
-import  time
+import time
 import random
 
-class CustThread(threading.Thread):
 
+class CustThread(threading.Thread):
     def __init__(self, name):
         threading.Thread.__init__(self)
         self.name = name
@@ -14,14 +14,13 @@ class CustThread(threading.Thread):
         print("Thread", self.name, "Execution Ends")
 
 
-
 def getTime(name):
     print("Thread {} sleeps at {}".format(name,
                                           time.strftime("%H:%M:%S", time.gmtime())))
 
-
     randomSleepTime = random.randint(1, 5)
     time.sleep(randomSleepTime)
+
 
 thread1 = CustThread("1")
 thread2 = CustThread("2")

@@ -10,11 +10,8 @@ class MLBase():
         pass
 
     # read the csv data defined in the params file and return the same
-    def read_csv_data(self):
-        config = cp.ConfigParser()
-        config.read(self.params_file)
-        csv_file_path = config['mandatory']['csv_file_path']
-        return pd.read_csv(csv_file_path)
+    def read_csv_data(self, csv_file):
+        return pd.read_csv(csv_file)
 
     def process_data(self, params_file=""):
         pass
