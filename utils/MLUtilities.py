@@ -4,7 +4,6 @@ from scipy.stats import mode
 import scipy as sp
 import rpy2.robjects as ro
 from rpy2.robjects.packages import importr
-
 entropy = importr('entropy')
 
 
@@ -70,8 +69,8 @@ def cross_tab(data, col1, col2):
 
 
 # used to sort data frame based on two columns
-def sort_data_frame(data, col1, col2):
-    data_sorted = data.sort_values([col1, col2], ascending=False)
+def sort_data_frame(df, col1, col2):
+    data_sorted = df.sort_values([col1, col2], ascending=False)
     data_sorted[[col1, col2]].head(10)
     return data_sorted
 
@@ -88,39 +87,102 @@ def data_frame_dtype(data):
     return data.dtype
 
 
-# storing column factors to the
+# storing column factors to the features configuration file
 def store_col_factors(data, params_file="params.ini"):
     cols = data_frame_dtype(data)
     for col in cols:
         print col[0], col[1]
 
 
-def get_levels(col, data):
+def get_levels(col, data, conf):
     ro.r('setwd("' + conf["mandatory"]["working_directory"] + '")')
     ro.r('train <- read.csv("train.csv")')
     levels = ro.r('levels(train$' + col + ')')
-    return levels
+    length = ro.r('length(levels(train$' + col + '))')
+    return levels, length
 
 
-conf = get_config_file()
+def fillna_by_value(df, value):
+    df = df.fillna(value)
+    return df
+
+
+# fill column by median
+def fillna_by_median(df, col):
+    median_age = df[col].dropna().median()
+    if len(df.col[df.col.isnull()]) > 0:
+        df.loc[(df.col.isnull()), col] = median_age
+
+
+def rstr(df):
+    return df.shape, df.apply(lambda x: [x.unique()])
+
+
+# remove all data containing nulls(rows)
+def remove_null(df):
+    return df.dropna(how='any')
+
+
+def df_info(df):
+    return df.info()
+
+
+# to save all col feature to to features.ini file
+def store_features_as_dict(conf, feature_dict_file="features.ini", section_name="features"):
+    # get all the features
+    features = conf['mandatory']['features'].split(',')
+    df = read_csv_file(csv_file_path=conf['mandatory']['train_csv_file_path'])
+    con = cp.ConfigParser()
+    con.add_section(section_name)
+    # here we are dealing with missing values, filling with zero(assumption : no effect of missing values)
+
+    for feature in features:
+
+        # get all the levels
+        feature_levels, length = get_levels(feature, df, conf)
+        if length[0] is not 0:
+            # make dictionary of all the features with numeric values
+            ls = list(feature_levels)
+            dict = {item: index + 1 for index, item in enumerate(ls)}
+            # and store the feature in the features.ini
+
+            # add the settings to the structure of the file
+
+            con.set(section_name, str(feature), str(dict))
+
+    with open(feature_dict_file, "wb") as config_file:
+        con.write(config_file)
+
+
+        # conf = get_config_file()
+        # train = read_csv_file(csv_file_path=conf['mandatory']['train_csv_file_path'])
+        # rstr(train)
+        # store_features_as_dict(conf)
+        #
+        # conf_features = get_config_file("features.ini")
+        # print conf_features
+
+        # train = train.dropna(how='any')
+        # rstr(train)
+
 
 # read data frame from csv file
-train = read_csv_file(csv_file_path=conf['mandatory']['train_csv_file_path'])
-print get_levels('Street', train)
+        # train = read_csv_file(csv_file_path=conf['mandatory']['train_csv_file_path'])
+        # store_features_as_dict(conf, "feat.ini", "feat")
 
-
-def calc_bin_entropy():
-    ro.r('setwd("D:/codes/datasets/kaggle/Titanic")')
-    ro.r('train <- read.csv("train.csv")')
-    survived = ro.r('x = train$Survived')
-    pclass = ro.r('z = train$Pclass')
-    sex = ro.r('s = as.integer(train$Sex)')
-    # calculating entropy between Survived and Pclass
-    binclassification = ro.r('y2 = entropy::discretize2d(x,z,2,3,r1=range(x),r2=range(z))')
-    ent = ro.r('entropy(y2)')
-    return binclassification
-    print ent
-
-    # todo : All R functions should also come here
-
-# will be very useful for analysis
+        #
+        # def calc_bin_entropy():
+        #     ro.r('setwd("D:/codes/datasets/kaggle/Titanic")')
+        #     ro.r('train <- read.csv("train.csv")')
+        #     survived = ro.r('x = train$Survived')
+        #     pclass = ro.r('z = train$Pclass')
+        #     sex = ro.r('s = as.integer(train$Sex)')
+        #     # calculating entropy between Survived and Pclass
+        #     binclassification = ro.r('y2 = entropy::discretize2d(x,z,2,3,r1=range(x),r2=range(z))')
+        #     ent = ro.r('entropy(y2)')
+        #     return binclassification
+        #     print ent
+        #
+        #     # todo : All R functions should also come here
+        #
+        # # will be very useful for analysis
