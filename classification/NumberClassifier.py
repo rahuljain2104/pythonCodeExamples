@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 import numpy as np
 
 try:
-    numberClassifier = pickle.load(open("numberClassifier.pickle", "rb"))
+    numberClassifier = pickle.load(open("numberClassifier1.pickle", "rb"))
 except (OSError, IOError) as e:
     # read training data from the csv file
     df = pd.read_csv('D:\codes\datasets\kaggle\\numberClassification\\train.csv')
